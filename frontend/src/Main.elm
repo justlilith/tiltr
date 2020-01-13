@@ -291,7 +291,7 @@ twitterArtistDecoder =
 
 view : Model -> Browser.Document Msg
 view model =
-  { title = "INF651::A5"
+  { title = "tiltr"
   , body =
       [ div [ id "app", class "container"]
          {-- text "The current URL is: "
