@@ -1,0 +1,19 @@
+{
+  "name": "tiltr",
+  "version": "1.0.0",
+  "description": "Twitter app for browsing art!",
+  "engines": {
+    "node": "v12.13.0"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lilith",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "twitter": "^1.7.1"
+  }
+}
