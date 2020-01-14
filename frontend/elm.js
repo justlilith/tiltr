@@ -6936,7 +6936,7 @@ var $author$project$Main$view = function (model) {
 							]))
 					]))
 			]),
-		title: 'INF651::A5'
+		title: 'tiltr'
 	};
 };
 var $author$project$Main$main = $elm$browser$Browser$application(
