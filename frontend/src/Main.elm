@@ -194,7 +194,7 @@ update msg model =
       )
 
     GotTweets resultlist ->
-      case Debug.log "" resultlist of
+      case {- debug.log -} resultlist of
         Ok great ->
           let
             updateModelBio : Model -> Artist
@@ -247,7 +247,7 @@ getTweets string =
 
 nodeserver : String
 nodeserver =
-  "https://polar-waters-46585.herokuapp.com/"
+  "https://tiltrcc.herokuapp.com/" --skipping a DNS hop
 
 tweetJSONDecoderListByArtist : Decoder (List TweetPost)
 tweetJSONDecoderListByArtist =
@@ -324,7 +324,7 @@ view model =
         , div [ id "center" ]
           [
           -- text model.searchString
-          Debug.log "" viewTweetList model.searchResponseList
+          {- Debug.log "" -} viewTweetList model.searchResponseList
           ]
       ]
     ]
