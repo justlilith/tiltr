@@ -22,7 +22,7 @@ I chose Elm for this because of the type safety and JSON handling. I knew when
 I started learning it that it would be a bit steep, but the more I've learned
 to use it, the better it's been for this.
 
-Elm compiles to JS, so the compiled JS is linked to the page on tilt.cc
+Elm compiles to JS, so the compiled JS is linked to the page on tiltr.cc
 
 The page itself has nearly zero HTML -- that's all built from the Elm I've
 written below. Part of the reason for this is that the JSON data from Twitter's
