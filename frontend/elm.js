@@ -6091,7 +6091,7 @@ var $elm$http$Http$get = function (r) {
 	return $elm$http$Http$request(
 		{body: $elm$http$Http$emptyBody, expect: r.expect, headers: _List_Nil, method: 'GET', timeout: $elm$core$Maybe$Nothing, tracker: $elm$core$Maybe$Nothing, url: r.url});
 };
-var $author$project$Main$nodeserver = 'https://tiltrcc.herokuapp.com/';
+var $author$project$Main$nodeserver = 'https://tiltr.cc';
 var $elm$url$Url$percentEncode = _Url_percentEncode;
 var $elm$json$Json$Decode$field = _Json_decodeField;
 var $elm$json$Json$Decode$at = F2(

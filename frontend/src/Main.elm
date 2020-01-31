@@ -247,7 +247,7 @@ getTweets string =
 
 nodeserver : String
 nodeserver =
-  "https://tiltrcc.herokuapp.com/" --site/backend URL
+  "https://tiltr.cc" --site/backend URL
 
 tweetJSONDecoderListByArtist : Decoder (List TweetPost)
 tweetJSONDecoderListByArtist =
