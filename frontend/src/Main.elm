@@ -168,17 +168,24 @@ update msg model =
 
     SearchButtonClicked ->
       (
-      case (String.startsWith "@" model.searchString) of -- model
-        True ->
-          model
-        False ->
-          { model | artistbio = initialbio }
+      if String.startsWith "@" model.searchString then
+        model
+      else
+        { model | artistbio = initialbio }
+      -- case (String.startsWith "@" model.searchString) of -- model
+      --   True ->
+      --     model
+      --   False -> 
+      --     { model | artistbio = initialbio }
       ,
-      case (String.startsWith "@" model.searchString) of -- msg
-         True ->
-          getTweetsByArtist model.searchString
-         False ->
-          getTweets model.searchString
+      if String.startsWith "@" model.searchString then
+        getTweetsByArtist model.searchString
+      else
+        getTweets model.searchString -- msg
+        --  True ->
+        --   getTweetsByArtist model.searchString
+        --  False ->
+        --   getTweets model.searchString
       )
 
     HashtagClicked hashtag ->

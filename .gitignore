@@ -1,3 +1,5 @@
 /node_modules
 /*.env
 npm-debug.log
+*.code-workspace
+elm-analyse.json

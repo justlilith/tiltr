@@ -6465,24 +6465,10 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 			case 'SearchButtonClicked':
 				return _Utils_Tuple2(
-					function () {
-						var _v2 = A2($elm$core$String$startsWith, '@', model.searchString);
-						if (_v2) {
-							return model;
-						} else {
-							return _Utils_update(
-								model,
-								{artistbio: $author$project$Main$initialbio});
-						}
-					}(),
-					function () {
-						var _v3 = A2($elm$core$String$startsWith, '@', model.searchString);
-						if (_v3) {
-							return $author$project$Main$getTweetsByArtist(model.searchString);
-						} else {
-							return $author$project$Main$getTweets(model.searchString);
-						}
-					}());
+					A2($elm$core$String$startsWith, '@', model.searchString) ? model : _Utils_update(
+						model,
+						{artistbio: $author$project$Main$initialbio}),
+					A2($elm$core$String$startsWith, '@', model.searchString) ? $author$project$Main$getTweetsByArtist(model.searchString) : $author$project$Main$getTweets(model.searchString));
 			case 'HashtagClicked':
 				var hashtag = msg.a;
 				return _Utils_Tuple2(
@@ -6502,15 +6488,15 @@ var $author$project$Main$update = F2(
 				if (resultlist.$ === 'Ok') {
 					var great = resultlist.a;
 					var updateModelBio = function (modela) {
-						var _v5 = A2($elm$core$String$startsWith, '@', modela.searchString);
-						if (_v5) {
+						var _v3 = A2($elm$core$String$startsWith, '@', modela.searchString);
+						if (_v3) {
 							var setArtistBio = function (thething) {
-								var _v6 = A2($elm$core$List$take, 1, thething);
-								if (!_v6.b) {
+								var _v4 = A2($elm$core$List$take, 1, thething);
+								if (!_v4.b) {
 									return model.artistbio;
 								} else {
-									if (!_v6.b.b) {
-										var aresult = _v6.a;
+									if (!_v4.b.b) {
+										var aresult = _v4.a;
 										return aresult.twitterArtist;
 									} else {
 										return model.artistbio;
