@@ -7,11 +7,17 @@ body {
 }
 
 #app {
-
     align-items: start;
     max-width: 80%;
     margin: auto;
     height:auto;
+    display:grid;
+    grid-template-columns: (6, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "top top top top top top"
+    "left left left right right right"
+    "center center center center center center ";
+    grid-gap: 1em 1em;
 }
 
 @media (min-width: 800px ) {
@@ -69,6 +75,7 @@ body {
     text-align: left;
     padding: 0;
     margin: 0;
+
 }
 
 ul {
@@ -105,11 +112,17 @@ h4 {
 
 @media (min-width: 701px ) {
   #center {
-    column-count: 2;
+    column-count: 1;
   }
 }
 
 @media (min-width: 1001px ) {
+  #center {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1201px ) {
   #center {
     column-count: 3;
   }
@@ -135,10 +148,8 @@ h4 {
 #artist {
     display:grid;
     grid-area: right;
-    width: 200px;
     align-self: stretch;
     align-content: start;
-    padding: 0 .5vw 0 2vw;
 }
 .centered-text {
   text-align: center;
