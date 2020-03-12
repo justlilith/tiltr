@@ -3,10 +3,11 @@
 body {
     font-family: sans-serif;
     font-size: 1em;
-    background-color: #cde;
-}
-
-#app {
+    background-color: #ccddee;
+    background-color: hsl(210, 50%, 85%);
+  }
+  
+  #app {
     align-items: start;
     max-width: 80%;
     margin: auto;
@@ -18,37 +19,43 @@ body {
     "left left left right right right"
     "center center center center center center ";
     grid-gap: 1em 1em;
-}
-
-@media (min-width: 800px ) {
-  #app {
-    display:grid;
-    grid-template-columns: (6, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: "top top top top top top"
-    "left center center center center right";
-    grid-gap: 1em 1em;
   }
-}
-
-#topbar {
-    display:grid;
+  
+  @media (min-width: 800px ) {
+    #app {
+      display:grid;
+      grid-template-columns: (6, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas: "top top top top top top"
+      "left center center center center right";
+      grid-gap: 1em 1em;
+    }
+  }
+  
+  #topbar {
+    display:flex;
+    align-items: flex-end;
     grid-area: top;
+    height:150px;
     background-image: url(./tiltr-logo.png);
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: center 25%;
 }
 
 #top-search {
-    width:100%;
-    margin:1vh auto 1vh auto;
-    height:25px;
-    border-radius: 1000vh;
-    padding: 1vw 1vh;
-    font-size: 1em;
-    box-shadow: none;
-    text-shadow: none;
-    border:none;
-    text-align: center;
-    color:#999;
+  background-color: hsla(0,0%,100%,1);
+  border:none;
+  border-radius: 1000vh;
+  box-shadow: none;
+  color:#999;
+  flex:10;
+  font-size: 1em;
+  height:40px;
+  margin:1vh ;
+  padding: 1vw 1vh;
+  text-shadow: none;
+  text-align: center;
 }
 
 #top-search:active {
@@ -56,8 +63,20 @@ body {
 }
 
 #top-search-button {
-  background-color: hsla(0,0%,0%,0.0);
+  background-color: #fff;
+  background-color: rgb(102, 153, 204);
   border:none;
+  border-radius: 1000vh;
+  box-shadow: none;
+  color:white;
+  flex:1;
+  font-size: 1em;
+  height:40px;
+  margin:1vh;
+  /* padding: 10px; */
+  text-shadow: none;
+  text-align: center;
+  line-height: 25px;
 }
 
 
@@ -82,6 +101,7 @@ body {
 ul {
   text-decoration: none;
   list-style-type: none;
+  
 }
 
 li {
@@ -89,16 +109,22 @@ li {
 }
 
 h1 {
-    margin:1vh auto 1vh auto;
+  margin:1vh auto 1vh auto;
+}
+
+h2 {
+  color: grey;
+  color: hsl(210, 50%, 20%);
 }
 
 h3 {
-    padding: none;
-    margin: none;
+  padding: none;
+  margin: none;
 }
 
 h4 {
   color: grey;
+  color: hsl(210, 50%, 40%);
 }
 
 
