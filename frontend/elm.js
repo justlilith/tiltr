@@ -6463,8 +6463,8 @@ var $author$project$Main$update = F2(
 						model,
 						{searchString: search}) : _Utils_update(
 						model,
-						{artistbio: $author$project$Main$initialbio, searchString: search}),
-					A2($elm$core$String$startsWith, '@', model.searchString) ? $author$project$Main$getTweetsByArtist(model.searchString) : $author$project$Main$getTweets(model.searchString));
+						{searchString: search}),
+					$elm$core$Platform$Cmd$none);
 			case 'SearchButtonClicked':
 				return _Utils_Tuple2(
 					A2($elm$core$String$startsWith, '@', model.searchString) ? model : _Utils_update(
@@ -6523,11 +6523,13 @@ var $author$project$Main$update = F2(
 				}
 		}
 	});
+var $author$project$Main$SearchButtonClicked = {$: 'SearchButtonClicked'};
 var $author$project$Main$SearchEntered = function (a) {
 	return {$: 'SearchEntered', a: a};
 };
 var $elm$html$Html$article = _VirtualDom_node('article');
 var $elm$html$Html$aside = _VirtualDom_node('aside');
+var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -6538,19 +6540,34 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
-var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$h4 = _VirtualDom_node('h4');
 var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$html$Html$input = _VirtualDom_node('input');
 var $elm$html$Html$li = _VirtualDom_node('li');
 var $elm$html$Html$nav = _VirtualDom_node('nav');
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
 var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
 	return {$: 'MayStopPropagation', a: a};
 };
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
 var $elm$html$Html$Events$stopPropagationOn = F2(
 	function (event, decoder) {
 		return A2(
@@ -6710,22 +6727,6 @@ var $elm$html$Html$Attributes$href = function (url) {
 		'href',
 		_VirtualDom_noJavaScriptUri(url));
 };
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'click',
-		$elm$json$Json$Decode$succeed(msg));
-};
 var $author$project$Main$viewLink = function (hashtag) {
 	return A2(
 		$elm$html$Html$li,
@@ -6842,13 +6843,6 @@ var $author$project$Main$view = function (model) {
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$h1,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('tiltr')
-									])),
-								A2(
 								$elm$html$Html$input,
 								_List_fromArray(
 									[
@@ -6856,7 +6850,18 @@ var $author$project$Main$view = function (model) {
 										$elm$html$Html$Attributes$id('top-search'),
 										$elm$html$Html$Attributes$placeholder('Type in a twitter search (like @artist or #hashtag)!')
 									]),
-								_List_Nil)
+								_List_Nil),
+								A2(
+								$elm$html$Html$button,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$id('top-search-button'),
+										$elm$html$Html$Events$onClick($author$project$Main$SearchButtonClicked)
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Search')
+									]))
 							])),
 						A2(
 						$elm$html$Html$article,

@@ -34,6 +34,7 @@ body {
 #topbar {
     display:grid;
     grid-area: top;
+    background-image: url(./tiltr-logo.png);
 }
 
 #top-search {

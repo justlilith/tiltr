@@ -2,7 +2,7 @@ module Main exposing (..)
 
 import Browser
 import Browser.Navigation as Nav
-import Html exposing (Html, a, article, aside, div, h1, h2, h3, h4, img, input, li, nav, p, section, text, ul)
+import Html exposing (Html, a, article, button, aside, div, h1, h2, h3, h4, img, input, li, nav, p, section, text, ul)
 import Html.Attributes exposing (class, href, id, placeholder, src)
 import Html.Events exposing (..)
 import Http
@@ -170,12 +170,15 @@ update msg model =
 
               else
                 -- { model |  }
-                { model | searchString = search, artistbio = initialbio }
-            , if String.startsWith "@" model.searchString then
-                getTweetsByArtist model.searchString
+                { model | searchString = search
+                --  artistbio = initialbio
+                 }
+                 , Cmd.none
+            -- , if String.startsWith "@" model.searchString then
+            --     getTweetsByArtist model.searchString
 
-              else
-                getTweets model.searchString
+            --   else
+            --     getTweets model.searchString
               -- , Cmd.batch
               --   [
               --   -- Nav.pushUrl model.key (Url.toString model.url)
@@ -351,20 +354,18 @@ view model =
 
         I'm leaving this in for future development. --}
             [ nav [ id "topbar" ]
-                [ h1 [] [ text "tiltr" ]
-                , -- button
-                  --     [ id "top-search-button"
-                  --     , onClick SearchButtonClicked
-                  --     ]
-                  -- [
+                [ 
                   input
                     [ onInput SearchEntered
                     , id "top-search"
                     , placeholder "Type in a twitter search (like @artist or #hashtag)!"
                     ]
                     []
-
-                -- ]
+                , button
+                      [ id "top-search-button"
+                      , onClick SearchButtonClicked
+                      ]
+                      [text "Search"]
                 ]
             , article [ id "artist" ]
                 (viewArtistSidebar model)
