@@ -48,7 +48,10 @@ express()
   .get('/tiltrartist/:ausername', cors(), (req, res) =>
     client.get
       ( '/statuses/user_timeline/' //note -- this is the Twitter endpoint, NOT the node url
-      , {screen_name : (req.params.ausername + "%20-filter%3Aretweets"), count : 100}
+      , {screen_name : req.params.ausername,
+        exclude_replies : true,
+        include_rts : false,
+        count : 100}
       , function(error, tweets, response)
         { if (!error)
             { res.json(tweets);
@@ -57,21 +60,21 @@ express()
             { console.log("oh no; we couldn't get tweets for that user");}
           }
           )
-          )
-          
-          .get('/tiltrterm/:aterm', cors(), (req, res) =>
-          client.get
-          ( '/search/tweets/' //note -- this is the Twitter endpoint, NOT the node url
-          , {q : (req.params.aterm + "%20-filter%3Aretweets"), count : 100}
-          , function(error, tweets, response)
-          { if (!error)
-            { res.json(tweets);
-          }
-            else
-              { console.log("oh no; we couldn't get tweets for that search term");}
-          }
         )
-      )
+          
+  .get('/tiltrterm/:aterm', cors(), (req, res) =>
+    client.get
+    ( '/search/tweets/' //note -- this is the Twitter endpoint, NOT the node url
+    , {q : (req.params.aterm + '%20-filter%3Aretweets'), count : 100}
+    , function(error, tweets, response)
+    { if (!error)
+      { res.json(tweets);
+    }
+      else
+        { console.log("oh no; we couldn't get tweets for that search term");}
+    }
+  )
+)
 
 
   // .get('/search/:search', (req,res) => res.json())
