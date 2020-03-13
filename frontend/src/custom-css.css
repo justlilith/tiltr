@@ -1,46 +1,46 @@
 /* This forms the bulk of the CSS. */
 
 body {
-    font-family: sans-serif;
-    font-size: 1em;
-    background-color: #ccddee;
-    background-color: hsl(210, 50%, 85%);
-  }
+  font-family: sans-serif;
+  font-size: 1em;
+  background-color: #ccddee;
+  background-color: hsl(210, 50%, 85%);
+}
   
+#app {
+  align-items: start;
+  margin: auto;
+  height:auto;
+  display:grid;
+  grid-template-columns: (6, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: "top top top top top top"
+  "left left left right right right"
+  "center center center center center center ";
+  grid-gap: 1em 1em;
+}
+
+@media (min-width: 800px ) {
   #app {
-    align-items: start;
-    max-width: 80%;
-    margin: auto;
-    height:auto;
     display:grid;
     grid-template-columns: (6, 1fr);
     grid-template-rows: auto;
     grid-template-areas: "top top top top top top"
-    "left left left right right right"
-    "center center center center center center ";
+    "left center center center center right";
     grid-gap: 1em 1em;
+    max-width: 80%;
   }
-  
-  @media (min-width: 800px ) {
-    #app {
-      display:grid;
-      grid-template-columns: (6, 1fr);
-      grid-template-rows: auto;
-      grid-template-areas: "top top top top top top"
-      "left center center center center right";
-      grid-gap: 1em 1em;
-    }
-  }
-  
-  #topbar {
-    display:flex;
-    align-items: flex-end;
-    grid-area: top;
-    height:150px;
-    background-image: url(./tiltr-logo.png);
-    background-size: 10%;
-    background-repeat: no-repeat;
-    background-position: center 25%;
+}
+
+#topbar {
+  align-items: flex-end;
+  background-image: url(./tiltr-logo.png);
+  background-size: 175px;
+  background-repeat: no-repeat;
+  background-position: center 20px;
+  display:flex;
+  grid-area: top;
+  height:150px;
 }
 
 #top-search {
@@ -52,14 +52,11 @@ body {
   flex:10;
   font-size: 1em;
   height:40px;
-  margin:1vh ;
-  padding: 1vw 1vh;
+  line-height: 20px;
+  padding: 10px;
   text-shadow: none;
   text-align: center;
-}
-
-#top-search:active {
-  color:black;
+  width:10px;
 }
 
 #top-search-button {
@@ -72,11 +69,15 @@ body {
   flex:1;
   font-size: 1em;
   height:40px;
-  margin:1vh;
-  /* padding: 10px; */
+  line-height: 20px;
+  margin-left: 10px;
+  padding: 10px;
   text-shadow: none;
   text-align: center;
-  line-height: 25px;
+}
+
+#top-search:active {
+  color:black;
 }
 
 
@@ -115,6 +116,7 @@ h1 {
 h2 {
   color: grey;
   color: hsl(210, 50%, 20%);
+  font-size: 1.5rem;
 }
 
 h3 {
@@ -125,6 +127,7 @@ h3 {
 h4 {
   color: grey;
   color: hsl(210, 50%, 40%);
+  font-size: 1.25rem;
 }
 
 
@@ -137,19 +140,19 @@ h4 {
     column-gap: 1vw;
 }
 
-@media (min-width: 701px ) {
+@media (min-width: 700px ) {
   #center {
     column-count: 1;
   }
 }
 
-@media (min-width: 1001px ) {
+@media (min-width: 1000px ) {
   #center {
     column-count: 2;
   }
 }
 
-@media (min-width: 1201px ) {
+@media (min-width: 1200px ) {
   #center {
     column-count: 3;
   }

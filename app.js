@@ -48,23 +48,25 @@ express()
   .get('/tiltrartist/:ausername', cors(), (req, res) =>
     client.get
       ( '/statuses/user_timeline/' //note -- this is the Twitter endpoint, NOT the node url
-      , {screen_name : req.params.ausername, count : 50}
+      , {screen_name : req.params.ausername + '%20-"RT%20%40"', count : 100}
       , function(error, tweets, response)
         { if (!error)
-            { res.json(tweets);}
-          else
+            { res.json(tweets);
+            }
+            else
             { console.log("oh no; we couldn't get tweets for that user");}
-        }
-      )
-    )
-
-    .get('/tiltrterm/:aterm', cors(), (req, res) =>
-      client.get
-        ( '/search/tweets/' //note -- this is the Twitter endpoint, NOT the node url
-        , {q : req.params.aterm, count : 50}
-        , function(error, tweets, response)
+          }
+          )
+          )
+          
+          .get('/tiltrterm/:aterm', cors(), (req, res) =>
+          client.get
+          ( '/search/tweets/' //note -- this is the Twitter endpoint, NOT the node url
+          , {q : req.params.aterm + '%20-"RT%20%40"', count : 100}
+          , function(error, tweets, response)
           { if (!error)
-              { res.json(tweets);}
+            { res.json(tweets);
+          }
             else
               { console.log("oh no; we couldn't get tweets for that search term");}
           }
