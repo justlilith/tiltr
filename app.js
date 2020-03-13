@@ -48,7 +48,7 @@ express()
   .get('/tiltrartist/:ausername', cors(), (req, res) =>
     client.get
       ( '/statuses/user_timeline/' //note -- this is the Twitter endpoint, NOT the node url
-      , {screen_name : req.params.ausername + "%20-\"RT%20%40", count : 100}
+      , {screen_name : req.params.ausername + "%20-filter%3Aretweets", count : 100}
       , function(error, tweets, response)
         { if (!error)
             { res.json(tweets);
@@ -62,7 +62,7 @@ express()
           .get('/tiltrterm/:aterm', cors(), (req, res) =>
           client.get
           ( '/search/tweets/' //note -- this is the Twitter endpoint, NOT the node url
-          , {q : req.params.aterm + "%20-\"RT%20%40", count : 100}
+          , {q : req.params.aterm + "%20-filter%3Aretweets", count : 100}
           , function(error, tweets, response)
           { if (!error)
             { res.json(tweets);
